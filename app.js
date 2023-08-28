@@ -51,13 +51,26 @@
 //     console.log('Archivo eliminado exitosamente');
 // });
 
-const path = require('path');
+// const path = require('path');
 
-const fullPath = path.join('/users', 'johnSalchichon', 'documents', 'file.txt');
-console.log('Ruta completa:', fullPath);
+// const fullPath = path.join('/users', 'johnSalchichon', 'documents', 'file.txt');
+// console.log('Ruta completa:', fullPath);
 
-const filename = path.basename(fullPath);
-console.log('Nombre de archivo:', filename);
+// const filename = path.basename(fullPath);
+// console.log('Nombre de archivo:', filename);
 
-const normalizePath = path.normalize('/users/../john/documents/../file.txt');
-console.log('Ruta normalizada:', normalizePath);
+// const extension = path.extname(fullPath);
+// console.log('Extension:', extension);
+
+// const normalizePath = path.normalize('/users/../john/documents/../file.txt');
+// console.log('Ruta normalizada:', normalizePath);
+
+const os = require('os');
+
+console.log('Plataforma del sistema operativo:', os.platform());
+console.log('Arquuitectura de la CPU:', os.arch());
+console.log('Información sobre las CPUs:', os.arch());
+console.log('Memoria total:', os.totalmem() / (1024 * 1024) + ' MB');
+console.log('Memoria libre:', os.freemem() / (1024 * 1024) + ' MB');
+console.log('Nombre del host:', os.hostname());
+console.log('Interfaces de red:', os.networkInterfaces());
