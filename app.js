@@ -65,12 +65,22 @@
 // const normalizePath = path.normalize('/users/../john/documents/../file.txt');
 // console.log('Ruta normalizada:', normalizePath);
 
-const os = require('os');
+// const os = require('os');
 
-console.log('Plataforma del sistema operativo:', os.platform());
-console.log('Arquuitectura de la CPU:', os.arch());
-console.log('Información sobre las CPUs:', os.arch());
-console.log('Memoria total:', os.totalmem() / (1024 * 1024) + ' MB');
-console.log('Memoria libre:', os.freemem() / (1024 * 1024) + ' MB');
-console.log('Nombre del host:', os.hostname());
-console.log('Interfaces de red:', os.networkInterfaces());
+// console.log('Plataforma del sistema operativo:', os.platform());
+// console.log('Arquitectura de la CPU:', os.arch());
+// console.log('Información sobre las CPUs:', os.cpus());
+// console.log('Memoria total:', os.totalmem() / (1024 * 1024) + ' MB');
+// console.log('Memoria libre:', os.freemem() / (1024 * 1024) + ' MB');
+// console.log('Nombre del host:', os.hostname());
+// console.log('Interfaces de red:', os.networkInterfaces());
+
+const EventEmitter = require('events');
+
+const myEmitter = new EventEmitter();
+
+myEmitter.on('saludo', () => {
+    console.log('Hola, evento "saludo" fue activado');
+});
+
+myEmitter.emit('saludo');
