@@ -75,12 +75,25 @@
 // console.log('Nombre del host:', os.hostname());
 // console.log('Interfaces de red:', os.networkInterfaces());
 
-const EventEmitter = require('events');
+// const EventEmitter = require('events');
 
-const myEmitter = new EventEmitter();
+// const myEmitter = new EventEmitter();
 
-myEmitter.on('saludo', () => {
-    console.log('Hola, evento "saludo" fue activado');
+// myEmitter.on('saludo', () => {
+//     console.log('Hola, evento "saludo" fue activado');
+// });
+
+// myEmitter.emit('saludo');
+
+const util = require('util');
+
+const fs = require('fs');
+const readFilePromise = util.promisify(fs.readFile);
+
+readFilePromise('./nuevoDirectorio/index.html', 'utf8')
+.then(data => {
+    console.log(data);
+})
+.catch(error => {
+    console.error(error);
 });
-
-myEmitter.emit('saludo');
