@@ -85,15 +85,53 @@
 
 // myEmitter.emit('saludo');
 
-const util = require('util');
+// const util = require('util');
 
-const fs = require('fs');
-const readFilePromise = util.promisify(fs.readFile);
+// const fs = require('fs');
+// const readFilePromise = util.promisify(fs.readFile);
 
-readFilePromise('./nuevoDirectorio/index.html', 'utf8')
-.then(data => {
-    console.log(data);
-})
-.catch(error => {
-    console.error(error);
+// readFilePromise('./nuevoDirectorio/index.html', 'utf8')
+// .then(data => {
+//     console.log(data);
+// })
+// .catch(error => {
+//     console.error(error);
+// });
+
+
+// const url = require('url');
+
+// const urlString = 'https://www.youtube.com/watch?v=51FH458c_lI&list=PLCmwTbs_QbFB6kDHWbCCLs6TccJ2WPWWd&index=14';
+// const parsedUrl = url.parse(urlString, true);
+
+// console.log(`Protocol: ${parsedUrl.protocol}`);
+// console.log(`Host: ${parsedUrl.host}`);
+// console.log(`Path: ${parsedUrl.pathname}`);
+// console.log(parsedUrl.query);
+
+// const queryParams = new url.URLSearchParams(parsedUrl.query);
+// queryParams.append('newParam', 'newValue');
+
+// console.log(queryParams.toString());
+
+
+const http = require('http');
+const url = require('url');
+
+const server = http.createServer((req, res) => {
+    const urlString = req.url;
+
+    const parsedUrl = url.parse(urlString, true);
+    const queryParameters = parsedUrl.query;
+
+    const name = queryParameters.name || 'Invitado';
+    const place = queryParameters.place || 'Some place';
+
+    res.writeHead(200, {'Content-Type': 'text/plain'});
+    res.end(`Hello ${name} from ${place}`);
+});
+
+const port = 3000;
+server.listen(port, () => {
+    console.log(`El servidor está escuchando en el puerto ${port}`);
 });
