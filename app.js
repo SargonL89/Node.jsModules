@@ -137,25 +137,36 @@
 // });
 
 
-const querystring = require('querystring');
+// const querystring = require('querystring');
 
-const obj = {nombre: 'John', edad: 35};
-const obj2 = {nombre: 'David', edad: 40};
+// const obj = {nombre: 'John', edad: 35};
+// const obj2 = {nombre: 'David', edad: 40};
 
-const cadenaCons = querystring.stringify(obj);
-const cadenaCons2 = querystring.stringify(obj2);
-console.log(cadenaCons);
-console.log(cadenaCons2);
+// const cadenaCons = querystring.stringify(obj);
+// const cadenaCons2 = querystring.stringify(obj2);
+// console.log(cadenaCons);
+// console.log(cadenaCons2);
 
-const parsedObj = querystring.parse(cadenaCons);
-const parsedObj2 = querystring.parse(cadenaCons2);
-console.log(parsedObj);
-console.log(parsedObj2);
+// const parsedObj = querystring.parse(cadenaCons);
+// const parsedObj2 = querystring.parse(cadenaCons2);
+// console.log(parsedObj);
+// console.log(parsedObj2);
 
-const originalString = ' Hola, mundo! ';
+// const originalString = ' Hola, mundo! ';
 
-const escapedString = querystring.escape(originalString);
-console.log(escapedString);
+// const escapedString = querystring.escape(originalString);
+// console.log(escapedString);
 
-const unescapedString = querystring.unescape(originalString);
-console.log(unescapedString);
+// const unescapedString = querystring.unescape(originalString);
+// console.log(unescapedString);
+
+
+const dns = require('dns');
+
+dns.lookup('www.google.com', (err, address, family) => {
+    if (err) {
+        console.error('Error:', err);
+        return;
+    }
+    console.log('Dirección IP:', address);
+});
