@@ -115,23 +115,47 @@
 // console.log(queryParams.toString());
 
 
-const http = require('http');
-const url = require('url');
+// const http = require('http');
+// const url = require('url');
 
-const server = http.createServer((req, res) => {
-    const urlString = req.url;
+// const server = http.createServer((req, res) => {
+//     const urlString = req.url;
 
-    const parsedUrl = url.parse(urlString, true);
-    const queryParameters = parsedUrl.query;
+//     const parsedUrl = url.parse(urlString, true);
+//     const queryParameters = parsedUrl.query;
 
-    const name = queryParameters.name || 'Invitado';
-    const place = queryParameters.place || 'Some place';
+//     const name = queryParameters.name || 'Invitado';
+//     const place = queryParameters.place || 'Some place';
 
-    res.writeHead(200, {'Content-Type': 'text/plain'});
-    res.end(`Hello ${name} from ${place}`);
-});
+//     res.writeHead(200, {'Content-Type': 'text/plain'});
+//     res.end(`Hello ${name} from ${place}`);
+// });
 
-const port = 3000;
-server.listen(port, () => {
-    console.log(`El servidor está escuchando en el puerto ${port}`);
-});
+// const port = 3000;
+// server.listen(port, () => {
+//     console.log(`El servidor está escuchando en el puerto ${port}`);
+// });
+
+
+const querystring = require('querystring');
+
+const obj = {nombre: 'John', edad: 35};
+const obj2 = {nombre: 'David', edad: 40};
+
+const cadenaCons = querystring.stringify(obj);
+const cadenaCons2 = querystring.stringify(obj2);
+console.log(cadenaCons);
+console.log(cadenaCons2);
+
+const parsedObj = querystring.parse(cadenaCons);
+const parsedObj2 = querystring.parse(cadenaCons2);
+console.log(parsedObj);
+console.log(parsedObj2);
+
+const originalString = ' Hola, mundo! ';
+
+const escapedString = querystring.escape(originalString);
+console.log(escapedString);
+
+const unescapedString = querystring.unescape(originalString);
+console.log(unescapedString);
